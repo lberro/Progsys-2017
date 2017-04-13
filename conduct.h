@@ -1,5 +1,14 @@
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
+
 #define FULL 0
-#define NOFULL 42
+#define NOTFULL 42
 #define TUBESTART sizeof(strut conduct)
 
 struct conduct{
@@ -8,7 +17,7 @@ struct conduct{
   size_t t_atomique;
   unsigned int p_read;
   unsigned int p_write;
-  char* tube;
+  char tube[];
 };
 
 struct conduct *conduct_create(const char *name, size_t a, size_t c);
